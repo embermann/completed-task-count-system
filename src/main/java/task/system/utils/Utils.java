@@ -7,4 +7,14 @@ public class Utils {
         System.out.flush();
     }
 
+    public static int calculateTotalCost(int price, int quantity) {
+
+        return price * quantity;
+
+    }
+
+    public static String constructSqlDateStr(String year, String month, String day) {
+        return year + "-" + month + "-" + day;
+    }
+
 }

@@ -3,32 +3,32 @@ package task.system.utils;
 import org.hsqldb.jdbc.JDBCCommonDataSource;
 import org.hsqldb.jdbc.JDBCDataSource;
 
-import java.sql.Connection;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DatabaseConnection {
 
-    static Connection connection;
+    private Connection connection;
 
-    public static void init () {
+    public DatabaseConnection() {
+        init();
+    }
+
+    public void init () {
+
+        Connection con = null;
 
         try {
-            JDBCDataSource dataSource = new JDBCDataSource();
-
-            dataSource.setURL("mem://localhost/testdb");
-            dataSource.setUser("SA");
-            dataSource.setPassword("");
-
-            connection = dataSource.getConnection();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            Class.forName("org.hsqldb.jdbc.JDBCDriver");
+            connection = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/", "SA", "");
+        }  catch (Exception e) {
+            e.printStackTrace(System.out);
         }
 
     }
 
 
 
-    public static Connection getConnection() {
+    public Connection getConnection() {
         return connection;
     }
 }
