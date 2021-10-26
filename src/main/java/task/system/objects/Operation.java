@@ -26,7 +26,7 @@ public class Operation {
 
         for (TaskObj task : list) {
 
-            System.out.printf("Task id: %d\t|\t Task price: %d\t|\t State: %s\t|\t Creation date: %s\n", task.getIdTask(), task.getPrice(), StateEnum.getByID(task.getIdState()).getName(), task.getCreationDate().toString());
+            System.out.printf("Task id: %d\t|\t Task price: %d\t|\t State: %s\n", task.getIdTask(), task.getPrice(), StateEnum.getByID(task.getIdState()).getName());
 
         }
 

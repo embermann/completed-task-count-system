@@ -2,7 +2,6 @@ package task.system.dao;
 
 import task.system.domain.OperationObj;
 import task.system.domain.TaskObj;
-import task.system.objects.Operation;
 import task.system.utils.DatabaseConnection;
 import task.system.utils.StateEnum;
 
