@@ -21,8 +21,8 @@ public class DataRetrieval {
 
     }
 
-    public int insertNewTask(String description) {
-        int result = 0;
+    public Integer insertNewTask(String description) {
+        Integer result = null;
 
         String sql = "INSERT INTO task (description, id_state, creation_date) " +
                 "VALUES (?,?,?)";
@@ -47,8 +47,8 @@ public class DataRetrieval {
         return result;
     }
 
-    public int insertNewOperation(OperationObj operation) {
-        int result = 0;
+    public Integer insertNewOperation(OperationObj operation) {
+        Integer result = null;
 
         String sql = "INSERT INTO task_operation (id_task, description, planned_quantity, price, total_cost, id_state, creation_date) " +
                 "VALUES (?,?,?,?,?,?,?)";

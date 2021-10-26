@@ -26,7 +26,7 @@ public class Task {
         System.out.print("Input task description: ");
         String description = in.nextLine();
 
-        int task_id = dataRetrieval.insertNewTask(description);
+        Integer task_id = dataRetrieval.insertNewTask(description);
 
         System.out.printf("\nYour new task ID: %d\n", task_id);
 

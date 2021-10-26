@@ -7,7 +7,6 @@ import task.system.utils.StateEnum;
 import task.system.utils.Utils;
 
 import java.sql.Date;
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -19,7 +18,7 @@ public class Operation {
         dataRetrieval = new DataRetrieval();
     }
 
-    public void addNewOperation() {
+    public void newOperationUserData() {
 
         System.out.println("This is list of existing non completed tasks\n");
 
@@ -48,6 +47,11 @@ public class Operation {
         System.out.print("\nInput price: ");
         price = in.nextInt();
 
+        System.out.printf("\nYour new task operation ID: %d\n", addNewOperation(id, plannedQuantity, price, description));
+
+    }
+
+    public Integer addNewOperation(int id, int plannedQuantity, int price, String description) {
 
         OperationObj operation = new OperationObj(
                 id,
@@ -58,11 +62,10 @@ public class Operation {
                 new Date(System.currentTimeMillis())
         );
 
-        int operationID = dataRetrieval.insertNewOperation(operation);
-
-        System.out.printf("\nYour new task operation ID: %d\n", operationID);
+        return dataRetrieval.insertNewOperation(operation);
 
     }
+
 
     public void changeOperationState() {
 
@@ -89,6 +92,15 @@ public class Operation {
         System.out.print("Input actual quantity: ");
         int actual_quantity = in.nextInt();
 
+        changeState(id, actual_quantity);
+
+        System.out.println("\nCompleted");
+
+
+    }
+
+    public void changeState(int id, int actual_quantity) {
+
         OperationObj operationObj = new OperationObj(
                 id,
                 StateEnum.COMPLETED.getId(),
@@ -101,10 +113,6 @@ public class Operation {
 
         Task task = new Task();
         task.performTaskUpdate(operationObj.getIdTaskOperation());
-
-        System.out.println("\nCompleted");
-
-
     }
 
 }

@@ -41,7 +41,7 @@ public class Application {
                 }
 
                 case 2: {
-                    operation.addNewOperation();
+                    operation.newOperationUserData();
                     break;
                 }
 
