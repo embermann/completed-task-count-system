@@ -127,7 +127,7 @@ public class DataRetrieval {
     public List<TaskObj> getTaskList() {
         List<TaskObj> result = new ArrayList<>();
 
-        String sql = "SELECT id_task, description, price, id_state, creation_date " +
+        String sql = "SELECT id_task, description, price, id_state " +
                 "FROM task " +
                 "WHERE NOT id_state=? ";
 
@@ -142,8 +142,7 @@ public class DataRetrieval {
                                 rs.getInt("id_task"),
                                 rs.getString("description"),
                                 rs.getInt("price"),
-                                rs.getByte("id_state"),
-                                rs.getDate("creation_date")
+                                rs.getByte("id_state")
                         )
                 );
             }

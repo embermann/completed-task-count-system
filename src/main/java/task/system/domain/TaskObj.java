@@ -11,12 +11,19 @@ public class TaskObj {
     private Date creationDate;
     private Date completionDate;
 
-    public TaskObj(int idTask, String description, int price, byte idState, Date creationDate) {
+    public TaskObj(int idTask, String description, int price, byte idState, Date completionDate) {
         this.idTask = idTask;
         this.description = description;
         this.price = price;
         this.idState = idState;
-        this.creationDate = creationDate;
+        this.completionDate = completionDate;
+    }
+
+    public TaskObj(int idTask, String description, int price, byte idState) {
+        this.idTask = idTask;
+        this.description = description;
+        this.price = price;
+        this.idState = idState;
     }
 
     public int getIdTask() {
